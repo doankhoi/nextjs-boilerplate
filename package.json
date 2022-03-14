@@ -1,0 +1,57 @@
+{
+  "name": "notionable-web",
+  "version": "1.0.0",
+  "description": "Notionable Web",
+  "main": "index.js",
+  "author": "osbkca",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "11.0.0-next.12",
+    "@emotion/styled": "11.0.0-next.12",
+    "@mdx-js/mdx": "^2.0.0",
+    "@notionhq/client": "^1.0.1",
+    "@reduxjs/toolkit": "^1.8.0",
+    "@zeit/next-mdx": "^1.2.0",
+    "axios": "^0.26.0",
+    "framer-motion": "^6.2.8",
+    "husky": "^7.0.4",
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.2.0",
+    "react-redux": "^7.2.6",
+    "swr": "^1.2.2"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^12.1.0",
+    "@types/convict": "^6.1.1",
+    "@types/node": "^17.0.21",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.12",
+    "devmoji": "^2.3.0",
+    "typescript": "^4.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "npx devmoji -e --lint",
+      "pre-commit": "yarn run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "yarn run lint"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  }
+}
